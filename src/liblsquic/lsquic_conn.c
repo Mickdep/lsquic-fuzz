@@ -229,31 +229,31 @@ lsquic_generate_cid (lsquic_cid_t *cid, size_t len)
     if (!len)
     {
         /* If not set, generate ID between 8 and MAX_CID_LEN bytes in length */
-        // RAND_bytes((uint8_t *) &len, sizeof(len));
-        // len %= MAX_CID_LEN - 7;
-        // len += 8;
-        // cid->len = len;
-        cid->u_cid.buf[0] = 8;
-        cid->u_cid.buf[1] = 8;
-        cid->u_cid.buf[2] = 8;
-        cid->u_cid.buf[3] = 8;
-        cid->u_cid.buf[4] = 8;
-        cid->u_cid.buf[5] = 8;
-        cid->u_cid.buf[6] = 8;
-        cid->u_cid.buf[7] = 8;
-        cid->len = 8;
+        RAND_bytes((uint8_t *) &len, sizeof(len));
+        len %= MAX_CID_LEN - 7;
+        len += 8;
+        cid->len = len;
+        // cid->u_cid.buf[0] = 8;
+        // cid->u_cid.buf[1] = 8;
+        // cid->u_cid.buf[2] = 8;
+        // cid->u_cid.buf[3] = 8;
+        // cid->u_cid.buf[4] = 8;
+        // cid->u_cid.buf[5] = 8;
+        // cid->u_cid.buf[6] = 8;
+        // cid->u_cid.buf[7] = 8;
+        // cid->len = 8;
     }else{
-        cid->u_cid.buf[0] = 5;
-        cid->u_cid.buf[1] = 5;
-        cid->u_cid.buf[2] = 5;
-        cid->u_cid.buf[3] = 5;
-        cid->u_cid.buf[4] = 5;
-        cid->u_cid.buf[5] = 5;
-        cid->u_cid.buf[6] = 5;
-        cid->u_cid.buf[7] = 5;
+        // cid->u_cid.buf[0] = 5;
+        // cid->u_cid.buf[1] = 5;
+        // cid->u_cid.buf[2] = 5;
+        // cid->u_cid.buf[3] = 5;
+        // cid->u_cid.buf[4] = 5;
+        // cid->u_cid.buf[5] = 5;
+        // cid->u_cid.buf[6] = 5;
+        // cid->u_cid.buf[7] = 5;
+        RAND_bytes(cid->idbuf, len);
         cid->len = 8;
     }
-    // RAND_bytes(cid->idbuf, len);
 }
 
 
