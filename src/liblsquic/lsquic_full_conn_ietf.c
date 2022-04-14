@@ -6164,25 +6164,25 @@ insert_new_dcid (struct ietf_full_conn *conn, uint64_t seqno,
                     return 0;
                 }
             }
-            else if (LSQUIC_CIDS_EQ(&(*el)->de_cid, cid))
-            {
-                ABORT_QUIETLY(0, TEC_PROTOCOL_VIOLATION,
-                    "NEW_CONNECTION_ID: received the same CID with sequence "
-                    "numbers %u and %"PRIu64, (*el)->de_seqno, seqno);
-                return -1;
-            }
-            else if (((*el)->de_flags & DE_SRST)
-                    && 0 == memcmp((*el)->de_srst, token,
-                                                    IQUIC_SRESET_TOKEN_SZ))
-            {
-                ABORT_QUIETLY(0, TEC_PROTOCOL_VIOLATION,
-                    "NEW_CONNECTION_ID: received second instance of reset "
-                    "token %s in seqno %"PRIu64", same as in seqno %u",
-                    (lsquic_hexstr(token, IQUIC_SRESET_TOKEN_SZ, tokstr,
-                                                    sizeof(tokstr)), tokstr),
-                    seqno, (*el)->de_seqno);
-                return -1;
-            }
+            // else if (LSQUIC_CIDS_EQ(&(*el)->de_cid, cid))
+            // {
+            //     ABORT_QUIETLY(0, TEC_PROTOCOL_VIOLATION,
+            //         "NEW_CONNECTION_ID: received the same CID with sequence "
+            //         "numbers %u and %"PRIu64, (*el)->de_seqno, seqno);
+            //     return -1;
+            // }
+            // else if (((*el)->de_flags & DE_SRST)
+            //         && 0 == memcmp((*el)->de_srst, token,
+            //                                         IQUIC_SRESET_TOKEN_SZ))
+            // {
+            //     ABORT_QUIETLY(0, TEC_PROTOCOL_VIOLATION,
+            //         "NEW_CONNECTION_ID: received second instance of reset "
+            //         "token %s in seqno %"PRIu64", same as in seqno %u",
+            //         (lsquic_hexstr(token, IQUIC_SRESET_TOKEN_SZ, tokstr,
+            //                                         sizeof(tokstr)), tokstr),
+            //         seqno, (*el)->de_seqno);
+            //     return -1;
+            // }
         }
         else if (!dce)
             dce = el;

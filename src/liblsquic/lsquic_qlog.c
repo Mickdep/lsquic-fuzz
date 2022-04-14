@@ -141,6 +141,11 @@ lsquic_qlog_packet_rx (const lsquic_cid_t* cid,
     else
         frame_list[0] = '\0';
 
+    char terminator[2] = {0x0D, 0x0A};
+    FILE *fp = fopen("/tmp/quiccy.txt", "a");
+    fwrite(packet_in_data, 1, packet_in_size, fp);
+    fwrite(terminator, 1, 2, fp);
+    fclose(fp);
     raw_bytes_written = lsquic_hex_encode(packet_in_data, packet_in_size,
                                                     data, QLOG_PACKET_RAW_SZ);
 
