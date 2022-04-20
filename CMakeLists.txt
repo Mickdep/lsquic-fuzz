@@ -62,8 +62,8 @@ IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
     IF(CMAKE_C_COMPILER MATCHES "clang" AND
                         NOT "$ENV{TRAVIS}" MATCHES "^true$" AND
                         NOT "$ENV{EXTRA_CFLAGS}" MATCHES "-fsanitize")
-        SET(MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -fsanitize=address")
-        SET(LIBS ${LIBS} -fsanitize=address)
+        SET(MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS}")
+        SET(LIBS ${LIBS})
     ENDIF()
     # Uncomment to enable cleartext protocol mode (no crypto):
     #SET (MY_CMAKE_FLAGS "${MY_CMAKE_FLAGS} -DLSQUIC_ENABLE_HANDSHAKE_DISABLE=1")
