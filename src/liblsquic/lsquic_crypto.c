@@ -521,12 +521,14 @@ lsquic_verify_prof (const uint8_t *chlo_data, size_t chlo_data_len,
 void
 lsquic_crypto_init (void)
 {
+    printf("[!!!!] Inside lsquic_crypt_init\n");
     if (crypto_inited)
         return ;
     
     //SSL_library_init();
     CRYPTO_library_init();
-    /* XXX Should we seed? If yes, wherewith? */ // RAND_seed(seed, seed_len);
+    printf("[!!!!] Setting RAND_seed\n");
+    RAND_seed(0, 1);
     
 #if defined( __x86_64 )||defined( __x86_64__ )
     make_uint128(&s_prime, 16777216, 315);

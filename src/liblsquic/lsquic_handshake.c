@@ -374,6 +374,7 @@ free_compressed_cert (void *parent, void *ptr, CRYPTO_EX_DATA *ad,
 static int
 lsquic_handshake_init(int flags)
 {
+    printf("Only now in lsquic_handshake_init\n");
     lsquic_crypto_init();
     if (flags & LSQUIC_GLOBAL_SERVER)
     {
