@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_export_key.dir/test_export_key.c.o"
-  "CMakeFiles/test_export_key.dir/test_export_key.c.o.d"
   "test_export_key"
   "test_export_key.pdb"
 )

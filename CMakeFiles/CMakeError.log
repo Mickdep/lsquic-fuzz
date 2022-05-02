@@ -75,3 +75,38 @@ int main(int argc, char** argv)
   return 0;
 #endif
 }
+Determining if the IP_DONTFRAG exist failed with the following output:
+Change Dir: /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_65bfb/fast && /usr/bin/make -f CMakeFiles/cmTC_65bfb.dir/build.make CMakeFiles/cmTC_65bfb.dir/build
+make[1]: Entering directory '/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65bfb.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DLSQUIC_DEBUG_NEXT_ADV_TICK=1 -DLSQUIC_CONN_STATS=1 -Wall -Wextra -Wno-unused-parameter -fno-omit-frame-pointer -Wno-missing-field-initializers -O0 -g3     -o CMakeFiles/cmTC_65bfb.dir/CheckSymbolExists.c.o   -c /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘IP_DONTFRAG’ undeclared (first use in this function); did you mean ‘IPV6_DONTFRAG’?
+    8 |   return ((int*)(&IP_DONTFRAG))[argc];
+      |                   ^~~~~~~~~~~
+      |                   IPV6_DONTFRAG
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+make[1]: *** [CMakeFiles/cmTC_65bfb.dir/build.make:66: CMakeFiles/cmTC_65bfb.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_65bfb/fast] Error 2
+
+
+File /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <netinet/in.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef IP_DONTFRAG
+  return ((int*)(&IP_DONTFRAG))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

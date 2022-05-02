@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz
-# Build directory: /Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz
+# Source directory: /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz
+# Build directory: /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

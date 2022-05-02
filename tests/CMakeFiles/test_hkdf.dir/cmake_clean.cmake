@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_hkdf.dir/test_hkdf.c.o"
-  "CMakeFiles/test_hkdf.dir/test_hkdf.c.o.d"
   "test_hkdf"
   "test_hkdf.pdb"
 )

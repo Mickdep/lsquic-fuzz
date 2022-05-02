@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_senhist.dir/test_senhist.c.o"
-  "CMakeFiles/test_senhist.dir/test_senhist.c.o.d"
   "test_senhist"
   "test_senhist.pdb"
 )

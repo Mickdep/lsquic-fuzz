@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_bw_sampler.dir/test_bw_sampler.c.o"
-  "CMakeFiles/test_bw_sampler.dir/test_bw_sampler.c.o.d"
   "test_bw_sampler"
   "test_bw_sampler.pdb"
 )

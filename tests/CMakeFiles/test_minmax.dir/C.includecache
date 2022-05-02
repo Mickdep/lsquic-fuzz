@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/src/liblsquic/lsquic_minmax.c
+stdint.h
+-
+string.h
+-
+lsquic_minmax.h
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/src/liblsquic/lsquic_minmax.h
+
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/src/liblsquic/lsquic_minmax.h
+
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/test_minmax.c
+assert.h
+-
+stdint.h
+-
+string.h
+-
+lsquic_minmax.h
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/lsquic_minmax.h
+vc_compat.h
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/vc_compat.h
+
+src/liblsquic/lsquic_minmax.h
+

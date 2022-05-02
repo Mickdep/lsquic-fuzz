@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_sfcw.dir/test_sfcw.c.o"
-  "CMakeFiles/test_sfcw.dir/test_sfcw.c.o.d"
   "test_sfcw"
   "test_sfcw.pdb"
 )

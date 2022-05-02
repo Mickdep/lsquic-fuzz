@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_varint.dir/test_varint.c.o"
-  "CMakeFiles/test_varint.dir/test_varint.c.o.d"
   "test_varint"
   "test_varint.pdb"
 )

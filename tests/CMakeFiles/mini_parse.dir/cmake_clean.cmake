@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mini_parse.dir/mini_parse.c.o"
-  "CMakeFiles/mini_parse.dir/mini_parse.c.o.d"
   "mini_parse"
   "mini_parse.pdb"
 )

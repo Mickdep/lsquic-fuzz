@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_conn_close_gquic_be.dir/test_conn_close_gquic_be.c.o"
-  "CMakeFiles/test_conn_close_gquic_be.dir/test_conn_close_gquic_be.c.o.d"
   "test_conn_close_gquic_be"
   "test_conn_close_gquic_be.pdb"
 )

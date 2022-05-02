@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_blocked_gquic_be.dir/test_blocked_gquic_be.c.o"
-  "CMakeFiles/test_blocked_gquic_be.dir/test_blocked_gquic_be.c.o.d"
   "test_blocked_gquic_be"
   "test_blocked_gquic_be.pdb"
 )

@@ -1,15 +1,22 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "C"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_C
+  "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/src/liblsquic/lsquic_minmax.c" "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/CMakeFiles/test_minmax.dir/__/src/liblsquic/lsquic_minmax.c.o"
+  "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/test_minmax.c" "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/CMakeFiles/test_minmax.dir/test_minmax.c.o"
+  )
+set(CMAKE_C_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/src/liblsquic/lsquic_minmax.c" "tests/CMakeFiles/test_minmax.dir/__/src/liblsquic/lsquic_minmax.c.o" "gcc" "tests/CMakeFiles/test_minmax.dir/__/src/liblsquic/lsquic_minmax.c.o.d"
-  "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/tests/test_minmax.c" "tests/CMakeFiles/test_minmax.dir/test_minmax.c.o" "gcc" "tests/CMakeFiles/test_minmax.dir/test_minmax.c.o.d"
+# The include file search paths:
+set(CMAKE_C_TARGET_INCLUDE_PATH
+  "tests"
+  "/home/Mickdep/fuzzing/quic/lsquic/boringssl/include"
+  "include"
+  "tests/../src/liblsquic"
+  "tests/../src/liblsquic/ls-qpack"
+  "tests/../src/lshpack"
   )
 
 # Targets to which this target links.

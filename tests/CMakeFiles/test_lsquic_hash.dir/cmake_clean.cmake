@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_lsquic_hash.dir/test_lsquic_hash.c.o"
-  "CMakeFiles/test_lsquic_hash.dir/test_lsquic_hash.c.o.d"
   "test_lsquic_hash"
   "test_lsquic_hash.pdb"
 )

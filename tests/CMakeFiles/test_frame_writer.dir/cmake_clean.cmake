@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_frame_writer.dir/test_frame_writer.c.o"
-  "CMakeFiles/test_frame_writer.dir/test_frame_writer.c.o.d"
   "test_frame_writer"
   "test_frame_writer.pdb"
 )

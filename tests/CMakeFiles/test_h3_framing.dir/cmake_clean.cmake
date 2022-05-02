@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_h3_framing.dir/test_h3_framing.c.o"
-  "CMakeFiles/test_h3_framing.dir/test_h3_framing.c.o.d"
   "test_h3_framing"
   "test_h3_framing.pdb"
 )

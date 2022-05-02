@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_frame_reader.dir/test_frame_reader.c.o"
-  "CMakeFiles/test_frame_reader.dir/test_frame_reader.c.o.d"
   "test_frame_reader"
   "test_frame_reader.pdb"
 )

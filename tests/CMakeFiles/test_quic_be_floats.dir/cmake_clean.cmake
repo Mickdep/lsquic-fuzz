@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_quic_be_floats.dir/test_quic_be_floats.c.o"
-  "CMakeFiles/test_quic_be_floats.dir/test_quic_be_floats.c.o.d"
   "test_quic_be_floats"
   "test_quic_be_floats.pdb"
 )

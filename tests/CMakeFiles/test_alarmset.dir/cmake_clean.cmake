@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_alarmset.dir/test_alarmset.c.o"
-  "CMakeFiles/test_alarmset.dir/test_alarmset.c.o.d"
   "test_alarmset"
   "test_alarmset.pdb"
 )

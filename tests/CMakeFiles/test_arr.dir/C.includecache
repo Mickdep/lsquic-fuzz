@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/test_arr.c
+assert.h
+-
+lsquic_arr.h
+/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/lsquic_arr.h
+
+src/liblsquic/lsquic_arr.h
+assert.h
+-
+string.h
+-
+stdint.h
+-
+stdlib.h
+-
+

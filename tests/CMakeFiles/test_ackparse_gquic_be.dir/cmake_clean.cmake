@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_ackparse_gquic_be.dir/test_ackparse_gquic_be.c.o"
-  "CMakeFiles/test_ackparse_gquic_be.dir/test_ackparse_gquic_be.c.o.d"
   "test_ackparse_gquic_be"
   "test_ackparse_gquic_be.pdb"
 )

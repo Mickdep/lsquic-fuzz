@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_hpi.dir/test_hpi.c.o"
-  "CMakeFiles/test_hpi.dir/test_hpi.c.o.d"
   "test_hpi"
   "test_hpi.pdb"
 )

@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_send_headers.dir/test_send_headers.c.o"
-  "CMakeFiles/test_send_headers.dir/test_send_headers.c.o.d"
   "test_send_headers"
   "test_send_headers.pdb"
 )

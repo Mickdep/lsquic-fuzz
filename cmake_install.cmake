@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz
+# Install script for directory: /home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,29 +27,29 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
-endif()
-
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lsquic" TYPE FILE FILES
-    "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/include/lsquic.h"
-    "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/include/lsquic_types.h"
-    "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/include/lsxpack_header.h"
+    "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/include/lsquic.h"
+    "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/include/lsquic_types.h"
+    "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/include/lsxpack_header.h"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/bin/cmake_install.cmake")
-  include("/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/src/cmake_install.cmake")
-  include("/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/tests/cmake_install.cmake")
+  include("/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/bin/cmake_install.cmake")
+  include("/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/src/cmake_install.cmake")
+  include("/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/tests/cmake_install.cmake")
 
 endif()
 
@@ -61,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/mick/Workspace/quic_implementations/lsquic/lsquic-fuzz/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/Mickdep/fuzzing/quic/lsquic/lsquic-fuzz/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

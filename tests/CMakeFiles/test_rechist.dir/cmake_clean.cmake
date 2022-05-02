@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_rechist.dir/__/src/liblsquic/lsquic_rechist.c.o"
-  "CMakeFiles/test_rechist.dir/__/src/liblsquic/lsquic_rechist.c.o.d"
   "CMakeFiles/test_rechist.dir/test_rechist.c.o"
-  "CMakeFiles/test_rechist.dir/test_rechist.c.o.d"
   "test_rechist"
   "test_rechist.pdb"
 )

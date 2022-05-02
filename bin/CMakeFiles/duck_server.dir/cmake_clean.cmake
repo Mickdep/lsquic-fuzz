@@ -1,12 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/duck_server.dir/duck_server.c.o"
-  "CMakeFiles/duck_server.dir/duck_server.c.o.d"
   "CMakeFiles/duck_server.dir/prog.c.o"
-  "CMakeFiles/duck_server.dir/prog.c.o.d"
   "CMakeFiles/duck_server.dir/test_cert.c.o"
-  "CMakeFiles/duck_server.dir/test_cert.c.o.d"
   "CMakeFiles/duck_server.dir/test_common.c.o"
-  "CMakeFiles/duck_server.dir/test_common.c.o.d"
   "duck_server"
   "duck_server.pdb"
 )

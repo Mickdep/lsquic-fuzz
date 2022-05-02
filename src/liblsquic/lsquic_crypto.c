@@ -400,9 +400,21 @@ void lsquic_gen_nonce_c(unsigned char *buf, uint64_t orbit)
 {
     time_t tm = time(NULL);
     unsigned char *p = buf;
-    memcpy(p, &tm, 4);
+    p[0] = 0;
+    p[1] = 0;
+    p[2] = 0;
+    p[3] = 0;
+    // memcpy(p, &tm, 4);
     p += 4;
-    memcpy(p, &orbit, 8);
+    // memcpy(p, &orbit, 8);
+    p[4] = 0;
+    p[5] = 0;
+    p[6] = 0;
+    p[7] = 0;
+    p[8] = 0;
+    p[9] = 0;
+    p[10] = 0;
+    p[11] = 0;
     p += 8;
     RAND_bytes(p, 20);
     p += 20;

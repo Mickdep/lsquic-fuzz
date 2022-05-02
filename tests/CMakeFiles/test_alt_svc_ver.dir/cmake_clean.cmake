@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_alt_svc_ver.dir/test_alt_svc_ver.c.o"
-  "CMakeFiles/test_alt_svc_ver.dir/test_alt_svc_ver.c.o.d"
   "test_alt_svc_ver"
   "test_alt_svc_ver.pdb"
 )

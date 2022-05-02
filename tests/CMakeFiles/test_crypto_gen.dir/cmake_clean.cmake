@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_crypto_gen.dir/test_crypto_gen.c.o"
-  "CMakeFiles/test_crypto_gen.dir/test_crypto_gen.c.o.d"
   "test_crypto_gen"
   "test_crypto_gen.pdb"
 )

@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_goaway_gquic_be.dir/test_goaway_gquic_be.c.o"
-  "CMakeFiles/test_goaway_gquic_be.dir/test_goaway_gquic_be.c.o.d"
   "test_goaway_gquic_be"
   "test_goaway_gquic_be.pdb"
 )

@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_streamgen.dir/test_streamgen.c.o"
-  "CMakeFiles/test_streamgen.dir/test_streamgen.c.o.d"
   "test_streamgen"
   "test_streamgen.pdb"
 )

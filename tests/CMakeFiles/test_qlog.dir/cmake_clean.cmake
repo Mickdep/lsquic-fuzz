@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_qlog.dir/test_qlog.c.o"
-  "CMakeFiles/test_qlog.dir/test_qlog.c.o.d"
   "test_qlog"
   "test_qlog.pdb"
 )

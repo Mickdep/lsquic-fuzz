@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_min_heap.dir/__/src/liblsquic/lsquic_min_heap.c.o"
-  "CMakeFiles/test_min_heap.dir/__/src/liblsquic/lsquic_min_heap.c.o.d"
   "CMakeFiles/test_min_heap.dir/test_min_heap.c.o"
-  "CMakeFiles/test_min_heap.dir/test_min_heap.c.o.d"
   "test_min_heap"
   "test_min_heap.pdb"
 )

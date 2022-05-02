@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_packno_len.dir/test_packno_len.c.o"
-  "CMakeFiles/test_packno_len.dir/test_packno_len.c.o.d"
   "test_packno_len"
   "test_packno_len.pdb"
 )
