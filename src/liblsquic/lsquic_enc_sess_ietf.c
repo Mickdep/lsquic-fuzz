@@ -2232,6 +2232,7 @@ iquic_esf_decrypt_packet (enc_session_t *enc_session_p,
         struct lsquic_engine_public *enpub, const struct lsquic_conn *lconn,
         struct lsquic_packet_in *packet_in)
 {
+    printf("=== Skipping decryption from iquic_esf_decrypt_packet... ===\n");
     struct enc_sess_iquic *const enc_sess = enc_session_p;
     unsigned char *dst;
     struct crypto_ctx_pair *pair;

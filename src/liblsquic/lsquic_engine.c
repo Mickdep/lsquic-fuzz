@@ -2165,6 +2165,7 @@ coi_next (struct conns_out_iter *iter)
         TAILQ_INSERT_TAIL(&iter->coi_active_list, conn, cn_next_out);
         conn->cn_flags |= LSCONN_COI_ACTIVE;
 #ifndef NDEBUG
+        printf("DEBUG is on! :)\n");
         if (iter->coi_last_sent)
             assert(iter->coi_last_sent <= conn->cn_last_sent);
         iter->coi_last_sent = conn->cn_last_sent;
@@ -2539,7 +2540,7 @@ iov_size (const struct iovec *iov, const struct iovec *const end)
     return size;
 }
 
-
+//DISABLE ENCRYPTION HERE
 static void
 send_packets_out (struct lsquic_engine *engine,
                   struct conns_tailq *ticked_conns,
@@ -2584,12 +2585,13 @@ send_packets_out (struct lsquic_engine *engine,
   next_coa:
         if (!(packet_out->po_flags & (PO_ENCRYPTED|PO_NOENCRYPT)))
         {
-            switch (conn->cn_esf_c->esf_encrypt_packet(conn->cn_enc_session,
-                                            &engine->pub, conn, packet_out))
+            printf("=== Encrypting packet... ===\n");
+            switch (0)
             {
             case ENCPA_NOMEM:
                 /* Send what we have and wait for a more opportune moment */
                 conn->cn_if->ci_packet_not_sent(conn, packet_out);
+                printf("Found ENCPA_NOMEM, going to end_for\n");
                 goto end_for;
             case ENCPA_BADCRYPT:
                 /* This is pretty bad: close connection immediately */
@@ -2603,6 +2605,7 @@ send_packets_out (struct lsquic_engine *engine,
                 }
                 continue;
             case ENCPA_OK:
+                printf("Found ENCPA_OK \n");
                 break;
             }
         }
@@ -2613,6 +2616,7 @@ send_packets_out (struct lsquic_engine *engine,
             {
                 /* Copy can only fail if packet could not be allocated */
                 conn->cn_if->ci_packet_not_sent(conn, packet_out);
+                printf("Copied packet, going to end_for\n");
                 goto end_for;
             }
         }
@@ -2680,8 +2684,9 @@ send_packets_out (struct lsquic_engine *engine,
         }
     }
   end_for:
-
+    printf("Inside end_for \n");
     if (n > 0) {
+        printf("Sending batch\n");
         w = send_batch(engine, &sb_ctx, n);
         n_sent += w;
         shrink = w < n;
@@ -2698,7 +2703,7 @@ send_packets_out (struct lsquic_engine *engine,
     }
 
     coi_reheap(&conns_iter, engine);
-
+    printf("Sent %u packets \n", n_sent);
     LSQ_DEBUG("%s: sent %u packet%.*s", __func__, n_sent, n_sent != 1, "s");
 }
 
@@ -2977,6 +2982,7 @@ lsquic_engine_packet_in (lsquic_engine_t *engine,
     const struct sockaddr *sa_local, const struct sockaddr *sa_peer,
     void *peer_ctx, int ecn)
 {
+    printf("Inside lsquic_engine_packet_in \n");
     const unsigned char *const packet_begin = packet_in_data;
     const unsigned char *const packet_end = packet_in_data + packet_in_size;
     struct packin_parse_state ppstate;

@@ -730,6 +730,7 @@ conn_decrypt_packet_or (struct mini_conn *mc,
 static enum proc_rp
 process_regular_packet (struct mini_conn *mc, lsquic_packet_in_t *packet_in)
 {
+    printf("Processing packet in mini_conn\n");
     const unsigned char *p, *pend;
     enum proc_rp prp;
     unsigned len;

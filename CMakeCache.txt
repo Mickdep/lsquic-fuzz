@@ -267,6 +267,9 @@ LSQUIC_SHARED_LIB:BOOL=OFF
 //Compile library unit tests
 LSQUIC_TESTS:BOOL=ON
 
+//No help, variable specified on the command line.
+NDEBUG:UNINITIALIZED=1
+
 //Path to a program.
 PERL_EXECUTABLE:FILEPATH=/usr/bin/perl
 

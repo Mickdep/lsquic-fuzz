@@ -7343,6 +7343,8 @@ process_regular_packet (struct ietf_full_conn *conn,
      */
     if (0 == (packet_in->pi_flags & PI_DECRYPTED))
     {
+        // conn->ifc_flags |= IFC_RETRIED;
+        printf("Decrypting packet now\n");
         dec_packin = conn->ifc_conn.cn_esf_c->esf_decrypt_packet(
                             conn->ifc_conn.cn_enc_session, conn->ifc_enpub,
                             &conn->ifc_conn, packet_in);
@@ -7375,6 +7377,7 @@ process_regular_packet (struct ietf_full_conn *conn,
                 LSQ_INFO("packet is too short to be decrypted");
                 return 0;
             }
+            printf("Found DECPI_TOO_SHORT\n");
         case DECPI_NOT_YET:
             return 0;
         case DECPI_NOMEM:
@@ -7387,6 +7390,7 @@ process_regular_packet (struct ietf_full_conn *conn,
             /* Receiving any other type of packet precludes subsequent retries.
              * We only set it if decryption is successful.
              */
+             printf("Found DECPI_OK\n");
             conn->ifc_flags |= IFC_RETRIED;
             break;
         }
