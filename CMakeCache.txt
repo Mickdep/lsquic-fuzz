@@ -15,7 +15,7 @@
 ########################
 
 //No help, variable specified on the command line.
-BORINGSSL_DIR:UNINITIALIZED=/home/Mickdep/fuzzing/quic/lsquic/boringssl
+BORINGSSL_DIR:UNINITIALIZED=/home/Mickdep/Fuzzing/QUIC/lsquic/boringssl
 
 //Path to a file.
 BORINGSSL_INCLUDE:PATH=/home/Mickdep/fuzzing/quic/lsquic/boringssl/include

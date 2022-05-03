@@ -286,6 +286,7 @@ struct enc_sess_iquic
 };
 
 
+//Might be interesting
 static void
 gen_hp_mask_aes (struct enc_sess_iquic *enc_sess,
         struct header_prot *hp, unsigned rw,
@@ -324,6 +325,7 @@ gen_hp_mask_chacha20 (struct enc_sess_iquic *enc_sess,
 }
 
 
+//Might be interesting
 static void
 apply_hp (struct enc_sess_iquic *enc_sess, struct header_prot *hp,
         unsigned char *dst, const unsigned char *mask,
@@ -2049,7 +2051,7 @@ static const enum enc_level pns2enc_level[2][N_PNS] =
     },
 };
 
-
+//Might be interesting
 static enum enc_packout
 iquic_esf_encrypt_packet (enc_session_t *enc_session_p,
     const struct lsquic_engine_public *enpub, struct lsquic_conn *lconn_UNUSED,
@@ -2224,6 +2226,7 @@ select_ku_label (const struct enc_sess_iquic *enc_sess)
 }
 
 
+//Might be interesting
 static enum dec_packin
 iquic_esf_decrypt_packet (enc_session_t *enc_session_p,
         struct lsquic_engine_public *enpub, const struct lsquic_conn *lconn,

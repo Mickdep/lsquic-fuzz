@@ -3091,6 +3091,7 @@ decrypt_packet (struct lsquic_enc_session *enc_session, uint8_t path_id,
                sizeof(path_id_packet_number));
 
         *out_len = data_len;
+        printf("======================= Calling aes_aead_dec!!!! ======================\n");
         ret = lsquic_aes_aead_dec(key,
                            buf, *header_len,
                            nonce, 12,
