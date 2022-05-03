@@ -345,7 +345,7 @@ int lsquic_aes_aead_enc(EVP_AEAD_CTX *key,
     LSQ_DEBUG("***lsquic_aes_aead_enc data %s", lsquic_get_bin_str(plain, plain_len, 40));
     // ret = EVP_AEAD_CTX_seal(key, cypher, cypher_len, max_out_len, 
     //                         nonce, nonce_len, plain, plain_len, ad, ad_len);
-    LSQ_DEBUG("Simply returning plain-text here instead of encrypting.");
+    LSQ_DEBUG("===========================Simply returning plain-text here instead of encrypting.===========================");
     ret = plain;
 //     LSQ_DEBUG("***lsquic_aes_aead_enc nonce: %s", lsquic_get_bin_str(nonce, nonce_len));
 //     LSQ_DEBUG("***lsquic_aes_aead_enc AD: %s", lsquic_get_bin_str(ad, ad_len));
@@ -380,7 +380,7 @@ int lsquic_aes_aead_dec(EVP_AEAD_CTX *key,
     
     // ret = EVP_AEAD_CTX_open(key, plain, plain_len, max_out_len,
     //                         nonce, nonce_len, cypher, cypher_len, ad, ad_len);
-    LSQ_DEBUG("Simply returning plain-text here after decryption.");
+    LSQ_DEBUG("===========================Simply returning plain-text here after decryption.===========================");
     ret = cypher;
 //    LSQ_DEBUG("***lsquic_aes_aead_dec nonce: %s", lsquic_get_bin_str(nonce, nonce_len));
 //    LSQ_DEBUG("***lsquic_aes_aead_dec AD: %s", lsquic_get_bin_str(ad, ad_len));
