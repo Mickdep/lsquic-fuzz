@@ -1000,6 +1000,7 @@ static int get_hs_state(struct lsquic_enc_session *enc_session)
 static int
 lsquic_enc_session_is_hsk_done (enc_session_t *enc_session_p)
 {
+    // return true; //Handshake is always completed.
     struct lsquic_enc_session *const enc_session = enc_session_p;
     return (get_hs_state(enc_session) == HSK_COMPLETED);
 }
@@ -2577,6 +2578,7 @@ determine_keys (struct lsquic_enc_session *enc_session)
         key_flag = 'F';
     }
 
+    //Might be interesting
     lsquic_c255_gen_share_key(enc_session->priv_key,
                        enc_session->hs_ctx.pubs,
                        (unsigned char *)shared_key_c);
@@ -3131,6 +3133,8 @@ lsquic_enc_session_have_key_gt_one (enc_session_t *enc_session_p)
 /* The size of `buf' is *header_len plus data_len.  The two parts of the
  * buffer correspond to the header and the payload of incoming QUIC packet.
  */
+
+//Might be interesting
 static enum enc_level
 lsquic_enc_session_decrypt (struct lsquic_enc_session *enc_session,
                enum lsquic_version version,
@@ -3687,6 +3691,7 @@ lsquic_enc_session_is_sess_resume_enabled (enc_session_t *enc_session_p)
 }
 
 
+//Might be interesting
 static ssize_t
 gquic_really_encrypt_packet (struct lsquic_enc_session *enc_session,
     const struct lsquic_conn *lconn, struct lsquic_packet_out *packet_out,
@@ -3971,6 +3976,7 @@ static const enum enc_level gel2el[] =
 };
 
 
+//Might be interesting
 static enum enc_packout
 gquic2_esf_encrypt_packet (enc_session_t *enc_session_p,
     const struct lsquic_engine_public *enpub, struct lsquic_conn *lconn_UNUSED,
@@ -4160,6 +4166,7 @@ gquic2_strip_hp (struct lsquic_enc_session *enc_session,
 }
 
 
+//Mighty
 static enum dec_packin
 gquic2_esf_decrypt_packet (enc_session_t *enc_session_p,
         struct lsquic_engine_public *enpub, const struct lsquic_conn *lconn,
