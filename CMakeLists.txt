@@ -1,5 +1,5 @@
-# Copyright (c) 2017 - 2021 LiteSpeed Technologies Inc.  See LICENSE.
-cmake_minimum_required(VERSION 2.8)
+# Copyright (c) 2017 - 2022 LiteSpeed Technologies Inc.  See LICENSE.
+cmake_minimum_required(VERSION 3.0...3.23)
 
 
 PROJECT(lsquic C)
@@ -16,12 +16,13 @@ MESSAGE(STATUS "CMake v${CMAKE_VERSION}")
 
 IF (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     # If using older glibc, need to link with -lrt.  See clock_getres(2).
-    EXECUTE_PROCESS(
-        COMMAND ${PROJECT_SOURCE_DIR}/print-glibc-version.sh ${CMAKE_C_COMPILER}
-        OUTPUT_VARIABLE GLIBC_VERSION)
-    IF(NOT GLIBC_VERSION EQUAL "" AND GLIBC_VERSION VERSION_LESS 2.17)
-        SET(LIBS ${LIBS} rt)
-    ENDIF()
+    include(CheckSymbolExists)
+    check_symbol_exists(clock_getres "time.h" HAS_clock_getres_WITHOUT_LIBRT)
+
+    if(NOT HAS_clock_getres_WITHOUT_LIBRT)
+        find_library(RT_LIBRARY rt)
+        set(NEED_LIBRT_FOR_clock_getres ON)
+    endif()
 ELSEIF (CMAKE_SYSTEM_NAME STREQUAL "Android")
     # for android-ndk >= r19b
     set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY "BOTH")
@@ -167,7 +168,7 @@ ELSE()
 ENDIF()
 
 IF (NOT DEFINED BORINGSSL_LIB AND DEFINED BORINGSSL_DIR)
-    FOREACH(LIB_NAME ssl crypto decrepit)
+    FOREACH(LIB_NAME ssl crypto)
         IF (CMAKE_SYSTEM_NAME STREQUAL Windows)
             FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
                 NAMES ${LIB_NAME}
@@ -190,24 +191,33 @@ IF (NOT DEFINED BORINGSSL_LIB AND DEFINED BORINGSSL_DIR)
 ELSE()
 
 
-    FOREACH(LIB_NAME ssl crypto decrepit)
-        IF (CMAKE_SYSTEM_NAME STREQUAL Windows)
-            FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
-                NAMES ${LIB_NAME}
-                PATHS ${BORINGSSL_LIB}
-                PATH_SUFFIXES Debug Release MinSizeRel RelWithDebInfo
-                NO_DEFAULT_PATH)
-        ELSE()
-            FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
-                NAMES lib${LIB_NAME}${LIB_SUFFIX}
-                PATHS ${BORINGSSL_LIB}
-                PATH_SUFFIXES ${LIB_NAME}
-                NO_DEFAULT_PATH)
+    FOREACH(LIB_NAME ssl crypto)
+        # If BORINGSSL_LIB is defined, try find each lib. Otherwise, user should define BORINGSSL_LIB_ssl,
+        # BORINGSSL_LIB_crypto and so on explicitly. For example, including boringssl and lsquic both via
+        # add_subdirectory:
+        #   add_subdirectory(third_party/boringssl)
+        #   set(BORINGSSL_LIB_ssl ssl)
+        #   set(BORINGSSL_LIB_crypto crypto)
+        #   add_subdirectory(third_party/lsquic)
+        IF (DEFINED BORINGSSL_LIB)
+            IF (CMAKE_SYSTEM_NAME STREQUAL Windows)
+                FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+                    NAMES ${LIB_NAME}
+                    PATHS ${BORINGSSL_LIB}
+                    PATH_SUFFIXES Debug Release MinSizeRel RelWithDebInfo
+                    NO_DEFAULT_PATH)
+            ELSE()
+                FIND_LIBRARY(BORINGSSL_LIB_${LIB_NAME}
+                    NAMES lib${LIB_NAME}${LIB_SUFFIX}
+                    PATHS ${BORINGSSL_LIB}
+                    PATH_SUFFIXES ${LIB_NAME}
+                    NO_DEFAULT_PATH)
+            ENDIF()
         ENDIF()
         IF(BORINGSSL_LIB_${LIB_NAME})
-            MESSAGE(STATUS "Found ${BORINGSSL_LIB} library: ${BORINGSSL_LIB_${LIB_NAME}}")
+            MESSAGE(STATUS "Found ${LIB_NAME} library: ${BORINGSSL_LIB_${LIB_NAME}}")
         ELSE()
-            MESSAGE(STATUS "${BORINGSSL_LIB} library not found")
+            MESSAGE(FATAL_ERROR "BORINGSSL_LIB_${LIB_NAME} library not found")
         ENDIF()
     ENDFOREACH()
 

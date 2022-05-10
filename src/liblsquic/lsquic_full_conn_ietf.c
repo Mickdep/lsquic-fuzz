@@ -1,4 +1,4 @@
-/* Copyright (c) 2017 - 2021 LiteSpeed Technologies Inc.  See LICENSE. */
+/* Copyright (c) 2017 - 2022 LiteSpeed Technologies Inc.  See LICENSE. */
 /*
  * lsquic_full_conn_ietf.c -- IETF QUIC connection.
  */
@@ -2901,7 +2901,12 @@ ietf_full_conn_ci_want_datagram_write (struct lsquic_conn *lconn, int is_want)
     {
         old = !!(conn->ifc_mflags & MF_WANT_DATAGRAM_WRITE);
         if (is_want)
+        {
             conn->ifc_mflags |= MF_WANT_DATAGRAM_WRITE;
+            if (lsquic_send_ctl_can_send (&conn->ifc_send_ctl))
+                lsquic_engine_add_conn_to_tickable(conn->ifc_enpub,
+                                                             &conn->ifc_conn);
+        }
         else
             conn->ifc_mflags &= ~MF_WANT_DATAGRAM_WRITE;
         LSQ_DEBUG("turn %s \"want datagram write\" flag",
